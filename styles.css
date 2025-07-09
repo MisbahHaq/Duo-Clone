@@ -12,7 +12,7 @@ body {
 }
 
 /* Navigation */
-.nav {
+.new-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -78,7 +78,7 @@ body {
     top: 2px;
     left: 2px;
     transition: transform 0.3s;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .toggle-switch.active .toggle-slider {
@@ -174,14 +174,14 @@ body {
 .bottle-body {
     width: 80px;
     height: 140px;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(240,240,240,0.9));
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.9));
     border-radius: 8px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     padding-bottom: 15px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .bottle-label {
@@ -317,15 +317,15 @@ body {
         grid-template-columns: 1fr;
         height: auto;
     }
-    
+
     .hero-section {
         height: 50vh;
     }
-    
+
     .nav-left {
         gap: 15px;
     }
-    
+
     .nav-item {
         font-size: 10px;
     }
@@ -337,22 +337,22 @@ body {
         gap: 15px;
         padding: 15px;
     }
-    
+
     .nav-left {
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
     }
-    
+
     .hero-title {
         font-size: 32px;
         letter-spacing: 4px;
     }
-    
+
     .product-section {
         padding: 30px 20px;
     }
-    
+
     .details-section {
         padding: 30px 20px;
     }

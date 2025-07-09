@@ -1,111 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calendar - Fragrance</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-left">
-            <span class="nav-item">AMBER</span>
-            <span class="nav-item">CITRUS</span>
-            <span class="nav-item">FLORAL</span>
-            <span class="nav-item">WATER</span>
-            <span class="nav-item">FRUIT</span>
-            <span class="nav-item">GREEN</span>
-            <span class="nav-item">MUSK</span>
-            <span class="nav-item">WOOD</span>
-            <span class="nav-item">SPICE</span>
-            <span class="nav-item">GOURMAND</span>
+    <nav class="new-nav">
+      <div class="nav-left">
+        <span class="nav-item">AMBER</span>
+        <span class="nav-item">CITRUS</span>
+        <span class="nav-item">FLORAL</span>
+        <span class="nav-item">WATER</span>
+        <span class="nav-item">FRUIT</span>
+        <span class="nav-item">GREEN</span>
+        <span class="nav-item">MUSK</span>
+        <span class="nav-item">WOOD</span>
+        <span class="nav-item">SPICE</span>
+        <span class="nav-item">GOURMAND</span>
+      </div>
+      <div class="nav-right">
+        <span class="synthetic-label">SYNTHETIC SWITCH</span>
+        <div class="toggle-switch" id="toggleSwitch">
+          <div class="toggle-slider"></div>
         </div>
-        <div class="nav-right">
-            <span class="synthetic-label">SYNTHETIC SWITCH</span>
-            <div class="toggle-switch" id="toggleSwitch">
-                <div class="toggle-slider"></div>
-            </div>
-        </div>
+      </div>
     </nav>
 
     <!-- Main Content -->
     <div class="main-container">
-        <!-- Left Section - Hero Image -->
-        <div class="hero-section">
-            <div class="hero-image">
-                <div class="hero-overlay">
-                    <h1 class="hero-title">CALENDAR</h1>
-                </div>
+      <!-- Left Section - Hero Image -->
+      <div class="hero-section">
+        <div class="hero-image">
+          <div class="hero-overlay">
+            <h1 class="hero-title">CALENDAR</h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center Section - Product -->
+      <div class="product-section">
+        <div class="best-seller-badge">BEST SELLER</div>
+        <div class="product-image">
+          <div class="bottle">
+            <div class="bottle-cap"></div>
+            <div class="bottle-body">
+              <span class="bottle-label">green cedar</span>
             </div>
+          </div>
+        </div>
+        <div class="product-info">
+          <h2 class="product-title">GREEN CEDAR</h2>
+          <p class="product-subtitle">A Velvety, Rich Wood</p>
+          <p class="product-price">€145</p>
+          <button class="quick-add-btn">QUICK ADD</button>
+        </div>
+      </div>
+
+      <!-- Right Section - Details -->
+      <div class="details-section">
+        <div class="fragrance-notes">
+          <div class="notes-row">
+            <span class="note-type">TOP</span>
+            <div class="note-description">
+              Magnolia, cardamom<br />
+              Cypriol, gusiac wood<br />
+              Texas and atlas mountain cedar
+            </div>
+          </div>
+          <div class="notes-row">
+            <span class="note-type">HEART</span>
+            <div class="note-description">
+              Cypriol, gusiac wood<br />
+              Texas and atlas mountain cedar
+            </div>
+          </div>
+          <div class="notes-row">
+            <span class="note-type">BASE</span>
+            <div class="note-description">Texas and atlas mountain cedar</div>
+          </div>
         </div>
 
-        <!-- Center Section - Product -->
-        <div class="product-section">
-            <div class="best-seller-badge">BEST SELLER</div>
-            <div class="product-image">
-                <div class="bottle">
-                    <div class="bottle-cap"></div>
-                    <div class="bottle-body">
-                        <span class="bottle-label">green cedar</span>
-                    </div>
-                </div>
-            </div>
-            <div class="product-info">
-                <h2 class="product-title">GREEN CEDAR</h2>
-                <p class="product-subtitle">A Velvety, Rich Wood</p>
-                <p class="product-price">€145</p>
-                <button class="quick-add-btn">QUICK ADD</button>
-            </div>
+        <div class="mood-section">
+          <h3 class="mood-title">MOOD</h3>
+          <p class="mood-description">
+            Walking through dense forest — tree-tops swaying in the wind, soft
+            moss underfoot, fragrant sap dripping from branches overhead. Green
+            Cedar is a genderless, woody scent both intoxicating and
+            invigorating.
+          </p>
+          <a href="#" class="more-info">MORE INFO</a>
         </div>
 
-        <!-- Right Section - Details -->
-        <div class="details-section">
-            <div class="fragrance-notes">
-                <div class="notes-row">
-                    <span class="note-type">TOP</span>
-                    <div class="note-description">
-                        Magnolia, cardamom<br>
-                        Cypriol, gusiac wood<br>
-                        Texas and atlas mountain cedar
-                    </div>
-                </div>
-                <div class="notes-row">
-                    <span class="note-type">HEART</span>
-                    <div class="note-description">
-                        Cypriol, gusiac wood<br>
-                        Texas and atlas mountain cedar
-                    </div>
-                </div>
-                <div class="notes-row">
-                    <span class="note-type">BASE</span>
-                    <div class="note-description">
-                        Texas and atlas mountain cedar
-                    </div>
-                </div>
+        <div class="additional-notes">
+          <div class="notes-row">
+            <span class="note-type">TOP</span>
+            <div class="note-description">
+              Tangerine, white peach<br />
+              Bergamot, lemon zest<br />
+              Pink pepper, eucalyptus
             </div>
-
-            <div class="mood-section">
-                <h3 class="mood-title">MOOD</h3>
-                <p class="mood-description">
-                    Walking through dense forest — tree-tops swaying in the wind, soft moss underfoot, fragrant sap dripping from branches overhead. Green Cedar is a genderless, woody scent both intoxicating and invigorating.
-                </p>
-                <a href="#" class="more-info">MORE INFO</a>
-            </div>
-
-            <div class="additional-notes">
-                <div class="notes-row">
-                    <span class="note-type">TOP</span>
-                    <div class="note-description">
-                        Tangerine, white peach<br>
-                        Bergamot, lemon zest<br>
-                        Pink pepper, eucalyptus
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
