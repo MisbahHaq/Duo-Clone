@@ -26,6 +26,7 @@
 
     <script>
       const canvas = document.querySelector("canvas");
+      const context = canvas.getContext("2d");
 
       const frames = {
         currentIndex: 0,
@@ -62,6 +63,18 @@
           const scaleY = canvas.height / img.height;
 
           const scale = Math.max(scaleX, scaleY);
+
+          const newWidth = img.width * scale;
+          const newHeight = img.height * scale;
+
+          const offsetX = (canvas.width - newWidth) / 2;
+          const offsetY = (canvas.height - newHeight) / 2;
+
+          context.clearRect(0, 0, canvas.width, canvas.height);
+          context.imageSmoothingQuality = "high";
+          context.imageSmoothingEnabled = true;
+          context.drawImage(img, offsetX, offsetY, newWidth, newHeight);
+          frames.currentIndex = index;
         }
       }
 
