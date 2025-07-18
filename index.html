@@ -25,12 +25,16 @@
     ></script>
 
     <script>
+      const canvas = document.querySelector("canvas");
+
       const frames = {
         currentIndex: 0,
         maxIndex: 382,
       };
 
       let imagesLoaded = 0;
+      const images = [];
+
       function preloadImages() {
         for (var i = 0; i <= frames.maxIndex; i++) {
           const imageUrl = `./frames/frame_${i
@@ -41,10 +45,26 @@
           img.onload = () => {
             imagesLoaded++;
             if (imagesLoaded === frames.maxIndex) {
+              loadImage(frames.currentIndex);
             }
           };
+          images.push(img);
         }
       }
+
+      function loadImage(index) {
+        if (index >= 0 && index <= frames.maxIndex) {
+          const img = images[index];
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+
+          const scaleX = canvas.width / img.width;
+          const scaleY = canvas.height / img.height;
+
+          const scale = Math.max(scaleX, scaleY);
+        }
+      }
+
       preloadImages();
     </script>
   </body>
