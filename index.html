@@ -12,19 +12,17 @@
     <div class="w-full bg-zinc-900">
       <div class="parent relative top-0 left-0 w-full h-[700vh]">
         <div class="w-full sticky top-0 left-0 h-screen">
-          <canvas class="w-full h-screen" id="frame"></canvas>
+          <canvas class="w-full cnav h-screen" id="frame"></canvas>
         </div>
       </div>
     </div>
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
-      integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
 
     <script>
+      gsap.registerPlugin(ScrollTrigger);
+
       const canvas = document.querySelector("canvas");
       const context = canvas.getContext("2d");
 
@@ -37,17 +35,21 @@
       const images = [];
 
       function preloadImages() {
-        for (var i = 0; i <= frames.maxIndex; i++) {
-          const imageUrl = `./frames/frame_${i
+        for (var i = 1; i <= frames.maxIndex; i++) {
+          const imageUrl = `../frames/frame_${i
             .toString()
             .padStart(4, "0")}.jpeg`;
           const img = new Image();
           img.src = imageUrl;
           img.onload = () => {
             imagesLoaded++;
-            if (imagesLoaded === frames.maxIndex) {
+            if (imagesLoaded === frames.maxIndex + 1) {
               loadImage(frames.currentIndex);
+              startAnimation();
             }
+          };
+          img.onerror = () => {
+            console.error("Failed to load", imageUrl);
           };
           images.push(img);
         }
@@ -61,7 +63,6 @@
 
           const scaleX = canvas.width / img.width;
           const scaleY = canvas.height / img.height;
-
           const scale = Math.max(scaleX, scaleY);
 
           const newWidth = img.width * scale;
@@ -76,6 +77,24 @@
           context.drawImage(img, offsetX, offsetY, newWidth, newHeight);
           frames.currentIndex = index;
         }
+      }
+
+      function startAnimation() {
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: ".cnav",
+              start: "top top",
+              scrub: 2,
+              markers: false, // set to true for debugging
+            },
+          })
+          .to(frames, {
+            currentIndex: frames.maxIndex,
+            onUpdate: function () {
+              loadImage(Math.floor(frames.currentIndex));
+            },
+          });
       }
 
       preloadImages();
