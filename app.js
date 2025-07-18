@@ -110,54 +110,54 @@ videos.forEach((video) => {
 //------------------------cursor effect on nav--------------------->
 
 navElements.forEach((element, idx) => {
-  if(idx == 0) return;
+  if (idx == 0) return;
 
-  element.addEventListener('mouseenter', function(){
-      navhoverH1.forEach((h1) => {
-          h1.innerHTML = "&nbsp;"+element.innerHTML+"  "+element.innerHTML+"  "+element.innerHTML+"  "+element.innerHTML+"  "+element.innerHTML;
-      })
-      navhover.style.display = "block";
-      navhover.style.opacity = "1";
-      cursor.style.transform = "translate(-50%, -50%) scale(2)";
+  element.addEventListener('mouseenter', function () {
+    navhoverH1.forEach((h1) => {
+      h1.innerHTML = "&nbsp;" + element.innerHTML + "  " + element.innerHTML + "  " + element.innerHTML + "  " + element.innerHTML + "  " + element.innerHTML;
+    })
+    navhover.style.display = "block";
+    navhover.style.opacity = "1";
+    cursor.style.transform = "translate(-50%, -50%) scale(2)";
   })
 });
 
-document.querySelector('nav').addEventListener('mouseleave', function(){
+document.querySelector('nav').addEventListener('mouseleave', function () {
   navhover.style.display = "none";
   navhover.style.opacity = "0";
   cursor.style.transform = "translate(-50%, -50%) scale(1)";
 })
 
 
-document.querySelector(".nav_hover h1").addEventListener("mouseenter", function(){
+document.querySelector(".nav_hover h1").addEventListener("mouseenter", function () {
   cursor.style.transform = "translate(-50%, -50%) scale(2)";
 })
 
-document.querySelector(".nav_hover h1").addEventListener("mouseleave", function(){
+document.querySelector(".nav_hover h1").addEventListener("mouseleave", function () {
   cursor.style.transform = "translate(-50%, -50%) scale(1)";
 });
 
 
 //------------------ cursor effect on images ------------------>
 
-function cursorOnImages(text){
+function cursorOnImages(text) {
   cursor.classList.add('cursor-active');
   cursor.innerHTML = "view";
 }
 
 images.forEach((img, idx) => {
-  if(idx==0) return;
-  img.addEventListener('mouseenter', function(){
-      cursorOnImages("view");
-      img.style.filter = "blur(2px)";
+  if (idx == 0) return;
+  img.addEventListener('mouseenter', function () {
+    cursorOnImages("view");
+    img.style.filter = "blur(2px)";
   })
 });
 
 images.forEach((img) => {
-  img.addEventListener('mouseleave', function(){
-      cursor.classList.remove('cursor-active');
-      cursor.innerHTML = "";
-      img.style.filter = "blur(0px)"
+  img.addEventListener('mouseleave', function () {
+    cursor.classList.remove('cursor-active');
+    cursor.innerHTML = "";
+    img.style.filter = "blur(0px)"
   });
 });
 
@@ -170,13 +170,13 @@ const preloadedImages = []; // Array to store preloaded images
 rows.forEach((row) => {
   const img = new Image();
   img.onload = () => {
-      preloadedImages.push(img); // Add the loaded image to the array
+    preloadedImages.push(img); // Add the loaded image to the array
   };
   img.src = row.dataset.image;
 });
 
 
-function cursorOnRows(img){
+function cursorOnRows(img) {
   cursor.classList.add('cursor-blend');
   cursor.classList.add('cursor-img');
   // cursor.style.backgroundImage = `url(${img.src})`;
@@ -184,20 +184,20 @@ function cursorOnRows(img){
 }
 
 rows.forEach((row, index) => {
-  if(index == 0){
-      return;
+  if (index == 0) {
+    return;
   }
-  row.addEventListener('mouseenter', function(){
-      cursorOnRows(preloadedImages[index - 1]); // Use the preloaded image from the array
-  })  
+  row.addEventListener('mouseenter', function () {
+    cursorOnRows(preloadedImages[index - 1]); // Use the preloaded image from the array
+  })
 });
 
 rows.forEach((row) => {
-  row.addEventListener('mouseleave', function(){
-      cursor.classList.remove('cursor-blend');
-      cursor.classList.remove('cursor-img');
-      // cursor.style.backgroundImage = "";
-      cursor.innerHTML = "";
+  row.addEventListener('mouseleave', function () {
+    cursor.classList.remove('cursor-blend');
+    cursor.classList.remove('cursor-img');
+    // cursor.style.backgroundImage = "";
+    cursor.innerHTML = "";
   });
 });
 
@@ -207,7 +207,7 @@ rows.forEach((row) => {
 //------------------------cursor effect on nav--------------------->
 
 //-----------------------footer ----------------------------
-function footerEffect( element, distance){
+function footerEffect(element, distance) {
   var x = element.getBoundingClientRect().x;
   var y = element.getBoundingClientRect().y;
   var width = element.getBoundingClientRect().width;
@@ -216,79 +216,79 @@ function footerEffect( element, distance){
   var cursorX = cursor.getBoundingClientRect().x;
   var cursorY = cursor.getBoundingClientRect().y;
 
-  var distanceX = cursorX - (x + width/2);
-  var distanceY = cursorY - (y + height/2);
+  var distanceX = cursorX - (x + width / 2);
+  var distanceY = cursorY - (y + height / 2);
 
-  if(distanceX < 0){
-      distanceX = -distanceX;
+  if (distanceX < 0) {
+    distanceX = -distanceX;
   }
-  if(distanceY < 0){
-      distanceY = -distanceY;
+  if (distanceY < 0) {
+    distanceY = -distanceY;
   }
 
-  var x = cursorX - x - width/2;
-  var y = cursorY - y - height/2;
+  var x = cursorX - x - width / 2;
+  var y = cursorY - y - height / 2;
 
-  if(distanceX < distance && distanceY < distance){
-      element.style.transform = `translate(${x/2}px, ${y/2}px)`;
-      element.children[0].style.transform = `translate(${x/11}px, ${y/11}px)`;
-      element.classList.add('focus');
-      cursor.style.opacity = "0";
+  if (distanceX < distance && distanceY < distance) {
+    element.style.transform = `translate(${x / 2}px, ${y / 2}px)`;
+    element.children[0].style.transform = `translate(${x / 11}px, ${y / 11}px)`;
+    element.classList.add('focus');
+    cursor.style.opacity = "0";
   }
-  else if(element.classList.contains('focus')){
-      //make it bounce a little and then return to its original state
-      element.children[0].style.transform = `translate(0px, 0px)`;
-      cursor.style.opacity = "1";
-      element.classList.remove('focus');
+  else if (element.classList.contains('focus')) {
+    //make it bounce a little and then return to its original state
+    element.children[0].style.transform = `translate(0px, 0px)`;
+    cursor.style.opacity = "1";
+    element.classList.remove('focus');
 
-      //bouncing animation
-      var bounce = gsap.timeline();
-      bounce.to(element, {
-          x: -x/3,
-          y: -y/3,
-          linear: true,
-          duration: 0.2,
-      })
-      bounce.to(element, {
-          x: x/4,
-          y: y/4,
-          linear: true,
-          duration: 0.2,
-      })
-      bounce.to(element, {
-          x: 0,
-          y: 0,
-          linear: true,
-          duration: 0.1,
-      })
+    //bouncing animation
+    var bounce = gsap.timeline();
+    bounce.to(element, {
+      x: -x / 3,
+      y: -y / 3,
+      linear: true,
+      duration: 0.2,
+    })
+    bounce.to(element, {
+      x: x / 4,
+      y: y / 4,
+      linear: true,
+      duration: 0.2,
+    })
+    bounce.to(element, {
+      x: 0,
+      y: 0,
+      linear: true,
+      duration: 0.1,
+    })
 
-      //--------------also move text---------------
-      var bounceText = gsap.timeline();
-      let text = element.children[0];
+    //--------------also move text---------------
+    var bounceText = gsap.timeline();
+    let text = element.children[0];
 
-      bounceText.to(text, {
-          x: -x/14,
-          y: -y/14,
-          linear: true,
-          duration: 0.2,
-      })
-      bounceText.to(text, {
-          x: x/20,
-          y: y/20,
-          linear: true,
-          duration: 0.2,
-      })
-      bounceText.to(text, {
-          x: 0,
-          y: 0,
-          linear: true,
-          duration: 0.1,
-      })
+    bounceText.to(text, {
+      x: -x / 14,
+      y: -y / 14,
+      linear: true,
+      duration: 0.2,
+    })
+    bounceText.to(text, {
+      x: x / 20,
+      y: y / 20,
+      linear: true,
+      duration: 0.2,
+    })
+    bounceText.to(text, {
+      x: 0,
+      y: 0,
+      linear: true,
+      duration: 0.1,
+    })
 
   }
 }
 
-document.addEventListener('mousemove', function(e){
+document.addEventListener('mousemove', function (e) {
   footerEffect(document.querySelector('footer .circle'), 100);
 })
 
