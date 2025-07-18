@@ -29,12 +29,20 @@
         currentIndex: 0,
         maxIndex: 382,
       };
+
+      let imagesLoaded = 0;
       function preloadImages() {
-        for (var i = 0; i < frames.maxIndex; i++) {
-          const imageUrl = `./asset/commpressed_frame_${i
+        for (var i = 0; i <= frames.maxIndex; i++) {
+          const imageUrl = `./frames/frame_${i
             .toString()
-            .padStart(4, "0")}.png`;
-          console.log(imageUrl);
+            .padStart(4, "0")}.jpeg`;
+          const img = new Image();
+          img.src = imageUrl;
+          img.onload = () => {
+            imagesLoaded++;
+            if (imagesLoaded === frames.maxIndex) {
+            }
+          };
         }
       }
       preloadImages();
